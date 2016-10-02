@@ -83,8 +83,19 @@ public class BinaryTree {
         if (curr == null) {
             return null;
         } else {
-            return null;
+            if (curr.value == parentValue) {
+            	return curr;
+            }
+            else {
+            	if (findParent(curr.left, parentValue) != null) {
+            		return findParent(curr.left, parentValue);
+            	}
+            	if (findParent(curr.right, parentValue) != null) {
+            		return findParent(curr.right, parentValue);
+            	}
+            }
         }
+        return null;
 
         // TODO: complete this method.
     }
@@ -121,7 +132,13 @@ public class BinaryTree {
      * @return a String representation of this tree
      */
     private String toString(BinaryNode curr) {
-        return null;
+        if (curr == null) {
+        	return "()";
+        }
+        else {
+        	return "(" + curr.value.toString() + " " + toString(curr.left) +
+        			" " + toString(curr.right) + ")";
+        }
 
         // TODO: complete this method.
     }
