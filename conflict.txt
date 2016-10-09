@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 1. abc de
 2. ABC DE. In coding change line two so there will be no conflict
-=======
-1. abc de. in 207 change line one so no conflict.
-2. ABC DE
->>>>>>> ee4ce114e71df377d1b9a874f7d815c1fa91df04
