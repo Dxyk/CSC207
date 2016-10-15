@@ -35,6 +35,12 @@ public class FileNode {
 	public FileNode(String name, FileNode parent, FileType type) {
 		this.name = name;
 		// TODO: complete this method.
+		this.parent = parent;
+		this.type = type;
+		this.children = new HashMap<String, FileNode>();
+		if (parent != null && parent.type != FileType.FILE){
+			parent.addChild(this.name, this);
+		}
 	}
 
 	/**
@@ -46,9 +52,17 @@ public class FileNode {
 	 * @return the node named name
 	 */
 	public FileNode findChild(String name) {
-		FileNode result = null;
 		// TODO: complete this method.
-		return result;
+		if (this.children.get(name) != null) {
+			return this.children.get(name);
+		} else {
+			for (FileNode f : this.getChildren()) {
+				if (f.type == FileType.DIRECTORY) {
+					return f.findChild(name);
+				}
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -132,7 +146,50 @@ public class FileNode {
 		if (!f1.getName().equals("top")) {
 			System.out.println("Error: " + f1.getName() + " should be " + "top");
 		}
-
+		// check type and parent
+		if (f1.getParent() != null) {
+			System.out.println("Error: " + f1.getParent() + "should be null");
+		}
+		if (!f1.isDirectory()) {
+			System.out.println("Error: f1 is directory (" + f1.isDirectory() + ") should be true");
+		}
+		// check children
+		if (!f1.children.isEmpty()) {
+			System.out.println("Error: " + f1.getName() + "should have no children now");
+		}
+		// add a child directory and check methods
+		FileNode child1 = new FileNode("child1", f1, FileType.DIRECTORY);
+		// check findChild for directories
+		if (!f1.findChild("child1").equals(child1)) {
+			System.out.println("Error: find child method not right: top should have children child1");
+		}
+		// check findChild if file DNE
+		if (f1.findChild("child3") != null) {
+			System.out.println("Error: top doesn't have child3 as a child, so should return null");
+		}
+		// check f1.children
+		if (f1.getChildren().isEmpty()) {
+			System.out.println("Error: " + f1.getParent() + "should have children child1");
+		}
+		// add a child file and check methods
+		FileNode child2 = new FileNode("child2", f1, FileType.FILE);
+		// check children for files
+		if (!child2.getChildren().isEmpty()) {
+			System.out.println("Error: child2 should have no children");
+		}
+		// check findChild for files
+		if (child2.findChild("1") != null) {
+			System.out.println("Error: child2 have no children so should not find any child");
+		}
+		// create a node under child1
+		FileNode child3 = new FileNode("child3", child1, FileType.FILE);
+		// check child3 is under both top and child1
+		if (!child1.findChild("child3").equals(child3)) {
+			System.out.println("Error: child3 is under child2");
+		}
+		if (!f1.findChild("child3").equals(child3)) {
+			System.out.println("Error: child3 is under child1. Should check recursion");
+		}
 	}
 
 }
