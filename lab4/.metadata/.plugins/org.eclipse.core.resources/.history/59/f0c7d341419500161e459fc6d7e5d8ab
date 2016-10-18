@@ -1,0 +1,10 @@
+package life;
+
+public class Arthropod extends Organism{
+
+	public Arthropod(String name, int xCoord, int yCoord, int speed, String direction) {
+		super(name, xCoord, yCoord, speed, direction);
+		
+		}
+
+}

@@ -1,0 +1,38 @@
+package life;
+
+import java.util.Random;
+
+public class Arthropod extends Organism{
+
+	protected int numLegs;
+	
+	protected Random dir;
+	
+	protected int speed;
+	
+	public Arthropod(String name, int xCoord, int yCoord, int speed, String direction, int numLegs) {
+		super(name, xCoord, yCoord, speed, direction);
+		this.numLegs = numLegs;
+		}
+
+	public int getNumLegs() {
+		return numLegs;
+	}
+
+	public void setNumLegs(int numLegs) {
+		this.numLegs = numLegs;
+	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + ", and has " + this.numLegs + " Legs.";
+	}
+	
+	@Override
+	public void move(){
+		int dirNum = dir.nextInt(3);
+		setDirection(Organism.VALID_DIRECTIONS[dirNum]);
+		super.move();
+	}
+
+}

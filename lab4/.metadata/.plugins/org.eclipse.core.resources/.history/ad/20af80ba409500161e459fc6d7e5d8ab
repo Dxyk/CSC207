@@ -1,0 +1,9 @@
+package life;
+
+public class Arthropod {
+
+	public Arthropod() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

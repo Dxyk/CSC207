@@ -1,0 +1,20 @@
+package life;
+
+public class Arthropod extends Organism{
+
+	protected int numLegs;
+	
+	public Arthropod(String name, int xCoord, int yCoord, int speed, String direction, int numLegs) {
+		super(name, xCoord, yCoord, speed, direction);
+		this.numLegs = numLegs;
+		}
+
+	public int getNumLegs() {
+		return numLegs;
+	}
+
+	public void setNumLegs(int numLegs) {
+		this.numLegs = numLegs;
+	}
+
+}
