@@ -88,6 +88,17 @@ public class FileChooserButtonListener implements ActionListener {
 	 */
 	private static void buildTree(File file, FileNode curr) {
 		// TODO: complete this method.
+		if (file.isDirectory()) {
+			for (File f: file.listFiles()) {
+				FileNode next;
+				if (f.isDirectory()) {
+					next = new FileNode(f.getName(), curr, FileType.DIRECTORY);
+				} else {
+					next = new FileNode(f.getName(), curr, FileType.FILE);
+				}
+				FileChooserButtonListener.buildTree(f, next);
+			}
+		}
 	}
 
 	/**
@@ -103,8 +114,21 @@ public class FileChooserButtonListener implements ActionListener {
 	 *            the prefix to prepend
 	 */
 	private static void buildDirectoryContents(FileNode fileNode, StringBuffer contents, String prefix) {
-		contents.append(prefix);
-		contents.append(fileNode.getName());
+//		contents.append(prefix);
+//		contents.append(fileNode.getName());
+		String nl = "\n";
 		// TODO: complete this method.
+		if (!fileNode.isDirectory()) {
+			contents.append(prefix);
+			contents.append(fileNode.getName());
+			contents.append(nl);
+		} else {
+			contents.append(prefix);
+			contents.append(fileNode.getName());
+			contents.append(nl);
+			for (FileNode child : fileNode.getChildren()) {
+				FileChooserButtonListener.buildDirectoryContents(child, contents, prefix.concat(DirectoryExplorer.PREFIX));
+			}
+		}
 	}
 }
