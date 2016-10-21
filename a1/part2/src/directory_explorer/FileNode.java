@@ -142,6 +142,7 @@ public class FileNode {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Testing FileNode");
+		// f1
 		FileNode f1 = new FileNode("top", null, FileType.DIRECTORY);
 		if (!f1.getName().equals("top")) {
 			System.out.println("Error: " + f1.getName() + " should be " + "top");
@@ -158,6 +159,7 @@ public class FileNode {
 			System.out.println("Error: " + f1.getName() + "should have no children now");
 		}
 		// add a child directory and check methods
+		// f1
 		FileNode child1 = new FileNode("child1", f1, FileType.DIRECTORY);
 		// check findChild for directories
 		if (!f1.findChild("child1").equals(child1)) {
