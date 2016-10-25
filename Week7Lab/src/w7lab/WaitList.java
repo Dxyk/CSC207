@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @author t6charti
  */
 
-public class WaitList<E> {
+public class WaitList<E> implements IWaitList<E> {
 
 	/** The waitlist contents. */
 	protected Queue<E> content;
