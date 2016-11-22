@@ -26,7 +26,10 @@ public class PhotoViewer {
 	private final JButton openFileButton;
 	private final JButton renameFileButton;
 	// TODO define text area
-
+	private final JTextArea prefixInputArea;
+	
+	private File dir = new File(".");
+	
 	private PhotoViewer() {
 		this.jframe = new JFrame();
 		openFileButton = new JButton("Choose directory");
@@ -39,9 +42,17 @@ public class PhotoViewer {
 		renameFileButton = new JButton("Rename files");
 		// TODO add a listener to renameFileButton that does the renaming logic
 		renameFileButton.setEnabled(false);
+		renameFileButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				renameFiles(dir, prefixInputArea.getText());
+			}
+		});
 
 		// TODO create a JTextArea field here for the text to add
-
+		prefixInputArea = new JTextArea();
+		prefixInputArea.setEditable(true);
+		
 		Container content = this.jframe.getContentPane();
 
 		// We create a new panel inside of our panel so that we can have
@@ -53,6 +64,7 @@ public class PhotoViewer {
 		content.add(buttonContainer, BorderLayout.PAGE_END);
 		// TODO content.add([your JTextArea], BorderLayout.[see diagram in
 		// handout])
+		content.add(prefixInputArea, BorderLayout.CENTER);
 	}
 
 	private void showFileChooser() {
@@ -64,6 +76,8 @@ public class PhotoViewer {
 			System.out.println("User opened file " + chooser.getSelectedFile().getAbsolutePath());
 			// TODO keep track of the selected directory so we can rename the
 			// files in it.
+			this.dir = chooser.getSelectedFile();
+			this.renameFileButton.setEnabled(true);
 		}
 	}
 
@@ -81,8 +95,9 @@ public class PhotoViewer {
 			System.out.println("File in directory: " + f.getAbsolutePath());
 			// notice that File has a constructor which takes a directory and a
 			// name,
-			// so the destination for your rename can be: new File(directory,
+			// so the destination for your renamess can be: new File(directory,
 			// "prefix_DSCN0218.jpg")
+			f.renameTo(new File(f.getParent(), prefix + f.getName()));
 		}
 	}
 
