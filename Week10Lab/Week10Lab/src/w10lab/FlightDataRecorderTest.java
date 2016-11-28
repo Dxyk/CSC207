@@ -1,4 +1,4 @@
-package w10lab;
+package Week10Lab.src.w10lab;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package w10lab;
+package Week10Lab.src.w10lab;
 
 import java.util.ArrayList;
 import java.util.List;
