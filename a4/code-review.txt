@@ -1,0 +1,29 @@
+Style:
+
+Overall, the indentations are consistent, which greatly improves the code’s readability. 
+
+I think method findFileExtension on line 178 is a little bit squeezed together. Would it be better if there are blank lines in the middle to separate them?
+
+Most of the naming conventions are followed, but there are still a few things I do not fully agree with. Usually camel case should be used for naming variables of multiple words, and constants should be capitalized. What is the reason behind the deviation from standard in line 23 for actual_file and in line 29 for img_filetypes?
+
+Class and method names are following the Java naming standards, and their names are all meaningful, which makes the code clear. However, I believe some variable names can be improved. For instance, the name of the file, nom, which is declared in line 17, could be renamed to a clearer name, like “name”. Some local variables are abbreviations, which is sometimes confusing. An example will be in method findFileExtension, there are local variables j and k. Wouldn’t “index” be a better substitution for j?
+
+
+Documentation:
+
+Most methods and variables have Java docs above them, which is a really helpful thing because they give readers a pretty good idea about what the next block of code is trying to achieve. However, in line 215 for buildTreeWithImages and line 282 for openInFinder, there are no Java docs for these methods. Also, the Java doc for the main method is mistakenly written in the wrong place, which is above method findImagesWithTag.
+
+The comments are appropriate so when I am reading the code, every thing makes sense and there isn’t any block of code that I do not understand. Like line 187 under findFileExtension where the comments explains why a flag is used instead of a break statement. However, I don’t understand why sometimes the comments are within the same line of codes, especially for method buildTreeWithImage, line 248 to 275. In order for the indentation to align, the comment has to be divided to multiple lines and it is pretty hard to read. 
+
+
+Design:
+
+The import of List in line 10 since it is not used, what is the purpose of keeping it there? 
+
+The methods getChildren, getParent, setParent, buildTree, and findImagesWithTag are never used anywhere in the work space, is there a reason why they ares kept there?
+
+In line 140, when adding a child to the map, a String for name and a FileNode for the node are taken as parameters. What if the name actually does not match the FileNode? Could the method take only a FileNode as a parameter and use a getter to get the name of that FileNode? 
+
+In method findFileExtension, the idea for finding the file extension is good, which is to find the last string “.” in the file name and what’s after it is the file’s extension. However, to achieve this, one line of “String extension = file.getName().substring(file.getName().lastIndexOf(“.”));” could do the trick, so the whole chunk of code could be avoided. Also, java has break statement. Although it is clever to come up with a solution when without using break, looking this up on the internet wouldn’t waste a lot of time.
+
+In method buildTreeWithImages, in line 230 - 236, to check if the file’s extension is in the known extension list, one could simply do “boolean isImage = image_filetypes.contains(findFileExtension(ls[i]))”, which could also save some lines and make the code more concise.
