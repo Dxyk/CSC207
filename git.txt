@@ -1,0 +1,23 @@
+CSC207 Git
+
+git init  -->  initialize the local directory with a git local repo
+
+git remote add NAME URL  -->  add a remote with name NAME and url URL
+(e.g. git remote add origin https://github.com/Dxyk/CSC207.git)
+
+git remote -v  -->  check the remotes
+
+git checkout  -->  check the branches
+
+git checkout BRANCH  --> switch to branch BRANCH
+
+git pull REMOTE_NAME BRANCH  -->  sync the local repo to the remote REMOTE_NAME's branch BRANCH
+(e.g. git pull origin master)
+
+git push REMOTE_NAME BRANCH  -->  sync the remote REMOTE_NAME's branch BRANCH with local repo
+
+git add FILENAME  -->  add the file FILENAME to staging area
+
+git commit -m "MESSAGE"  -->  commit the changes with a short logging message MESSAGE
+
+git status  -->  show the status of the local repo
