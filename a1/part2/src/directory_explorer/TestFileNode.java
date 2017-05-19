@@ -6,13 +6,9 @@ package directory_explorer;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -126,6 +122,7 @@ public class TestFileNode {
 
 		Map<String, FileNode> expected = new HashMap<String, FileNode>();
 		expected.put("a child", child);
+		@SuppressWarnings("unchecked")
 		Map<String, FileNode> result = (Map<String, FileNode>) children.get(root);
 		assertEquals(expected, result);
 
