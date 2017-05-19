@@ -1,0 +1,19 @@
+package w7lab;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+public abstract class IWaitList<E> {
+	
+	protected Queue<E> content;
+	
+	public void add(E element){
+		
+	}
+	
+	public E remove(){
+		return this.content.poll();
+	}
+}

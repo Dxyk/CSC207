@@ -1,0 +1,5 @@
+package w7lab;
+
+public abstract class IWaitList {
+
+}

@@ -1,0 +1,16 @@
+package w7lab;
+
+import java.util.Collection;
+
+public class UnfairWaitList<E> extends WaitList<E> {
+
+	public UnfairWaitList() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public UnfairWaitList(Collection<E> c) {
+		super(c);
+		// TODO Auto-generated constructor stub
+	}
+
+}
