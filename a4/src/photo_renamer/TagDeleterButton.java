@@ -8,6 +8,11 @@ import javax.swing.JList;
 
 public class TagDeleterButton extends ListSelectionButton<String> implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public TagDeleterButton(String text, JList<String> source, PhotoRenamer p) {
 		super(text, source, p);
 	}

@@ -7,13 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PhotoNode extends FileNode {
 
@@ -141,7 +136,6 @@ public class PhotoNode extends FileNode {
 	 */
 	public void confirmRename(String renameTo) {
 		String newname1 = this.actual_file.getParent() + "/" + renameTo;
-		String newname2 = renameTo;
 		File newname = new File(newname1);
 		if (this.actual_file.renameTo(newname)) {
 			System.out.println("yay");

@@ -3,12 +3,14 @@ package photo_renamer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Action;
-import javax.swing.Icon;
 import javax.swing.JButton;
 
 public class ConfirmRenameButton extends JButton implements ActionListener {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PhotoRenamer p;
 
 	/** If clicked, this button confirms the renaming of the image to 

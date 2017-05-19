@@ -7,6 +7,11 @@ import javax.swing.JList;
 
 public class TagAdderButton extends ListSelectionButton<String> implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public TagAdderButton(String text, JList<String> source, PhotoRenamer p) {
 		super(text, source, p);
 	}

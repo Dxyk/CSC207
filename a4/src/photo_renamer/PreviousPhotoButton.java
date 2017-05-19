@@ -6,6 +6,10 @@ import javax.swing.JButton;
 
 public class PreviousPhotoButton extends JButton implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PhotoRenamer p;
 	
 	public PreviousPhotoButton(String text, PhotoRenamer p){

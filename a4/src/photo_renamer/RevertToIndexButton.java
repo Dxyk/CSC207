@@ -8,6 +8,10 @@ import javax.swing.JTextField;
 
 public class RevertToIndexButton extends JButton implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PhotoRenamer p;
 	private JTextField source;
 	private RevertToButton r;

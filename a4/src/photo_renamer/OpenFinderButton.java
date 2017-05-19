@@ -10,6 +10,10 @@ import javax.swing.JButton;
 
 public class OpenFinderButton extends JButton implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	PhotoRenamer p;
 	//TODO write constructor
 	public OpenFinderButton(String text, PhotoRenamer p){

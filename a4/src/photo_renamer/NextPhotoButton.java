@@ -1,18 +1,16 @@
 package photo_renamer;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
 
 public class NextPhotoButton extends JButton implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PhotoRenamer p;
 	
 	public NextPhotoButton(String text, PhotoRenamer p){

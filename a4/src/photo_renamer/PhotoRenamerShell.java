@@ -2,7 +2,6 @@ package photo_renamer;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -133,7 +132,7 @@ public class PhotoRenamerShell {
 						System.out.println("Enter the index of the name you want to revert to: ");
 						String input = s.nextLine();
 						int index = Integer.parseInt(input);
-						LogEntry m = this.getLog(currentPhoto.actual_file.getName());
+						LogEntry m = PhotoRenamerShell.getLog(currentPhoto.actual_file.getName());
 						String revertedName = m.getRevertedName(index);
 						System.out.println(revertedName);
 						currentPhoto.confirmRename(revertedName);
@@ -197,6 +196,7 @@ public class PhotoRenamerShell {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public static void deserializeLog() {
 		try {
 			FileInputStream fi = new FileInputStream("src/photo_renamer/log.ser");
@@ -224,7 +224,7 @@ public class PhotoRenamerShell {
 	}
 
 	public void displayLog(String currName) {
-		System.out.println(this.getLog(currName).toString());
+		System.out.println(PhotoRenamerShell.getLog(currName).toString());
 	}
 
 	// find the correct LogEntry object in this.log

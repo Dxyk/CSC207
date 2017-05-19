@@ -1,23 +1,16 @@
 package photo_renamer;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class DirectoryChooserButton extends JButton implements ActionListener {
 
-	private PhotoRenamer p;
-	private JFrame dFrame;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * Initialize a DirectoryChooserButton
 	 * 
@@ -28,7 +21,6 @@ public class DirectoryChooserButton extends JButton implements ActionListener {
 	 */
 	public DirectoryChooserButton(String text, PhotoRenamer p) {
 		super(text);
-		this.p = p;
 		this.addActionListener(this);
 	}
 

@@ -11,6 +11,10 @@ import javax.swing.JPanel;
 
 public class SeeLogButton extends JButton implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PhotoRenamer p;
 	
 	public SeeLogButton(String text, PhotoRenamer p){

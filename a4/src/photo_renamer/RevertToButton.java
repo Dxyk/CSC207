@@ -2,7 +2,6 @@ package photo_renamer;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class RevertToButton extends JButton implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public PhotoRenamer p;
 	public JFrame logFrame;
 	

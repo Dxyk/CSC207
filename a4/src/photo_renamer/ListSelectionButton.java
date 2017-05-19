@@ -7,6 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JList;
 
 public abstract class ListSelectionButton<T> extends JButton implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JList<T> source;
 	private PhotoRenamer p;
 	
@@ -26,7 +30,7 @@ public abstract class ListSelectionButton<T> extends JButton implements ActionLi
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		T selected = this.getSource().getSelectedValue();
+		this.getSource().getSelectedValue();
 	}
 
 	public JList<T> getSource() {
